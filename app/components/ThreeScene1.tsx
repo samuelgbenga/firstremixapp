@@ -1,4 +1,5 @@
 // src/ThreeDScene.js
+import { Link } from "@remix-run/react";
 import React, { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three-stdlib";
@@ -56,8 +57,8 @@ const ThreeScene1: React.FC = () => {
       requestAnimationFrame(animate);
       controls.update();
       // Only rotate the cube when the mouse is inside the div
-        // cube.rotation.x += 0.02;
-        // cube.rotation.y += 0.02;
+      // cube.rotation.x += 0.02;
+      // cube.rotation.y += 0.02;
       renderer.render(scene, camera);
     };
 
@@ -108,7 +109,11 @@ const ThreeScene1: React.FC = () => {
     };
   }, []);
 
-  return <div ref={mountRef} className="threeDstdlib" />;
+  return (
+    <div ref={mountRef} className="threeDstdlib">
+      <Link to="/">Go Back home</Link>
+    </div>
+  );
 };
 
 export default ThreeScene1;

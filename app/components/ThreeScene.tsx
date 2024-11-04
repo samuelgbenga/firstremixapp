@@ -1,4 +1,5 @@
 // src/ThreeScene.js
+import { Link } from "@remix-run/react";
 import React, { useRef, useEffect } from "react";
 import * as THREE from "three";
 
@@ -40,6 +41,9 @@ export const ThreeScene: React.FC = () => {
     pointLight.position.set(2, 2, 2); // Closer position
     scene.add(pointLight);
 
+    // Add an ambient light
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+    scene.add(ambientLight);
 
     // Animation loop
 
@@ -71,5 +75,9 @@ export const ThreeScene: React.FC = () => {
     };
   }, []);
 
-  return <div className="threeDSceneContainer" ref={mountRef} />;
+  return (
+    <div className="threeDSceneContainer" ref={mountRef}>
+      <Link to="/sessionRoute">Go to the the session Route</Link>
+    </div>
+  );
 };
