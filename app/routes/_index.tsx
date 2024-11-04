@@ -140,7 +140,8 @@ export const meta: MetaFunction = () => {
 
 import { json, redirect, LoaderFunction, ActionFunction } from "@remix-run/node";
 import { Form, useLoaderData } from "@remix-run/react";
-import { FirstThreeDScene } from "~/components/FirstThreeDScene";
+import { ThreeScene } from "~/components/ThreeScene";
+
 import { getSession, commitSession } from "~/session.server";
 
 // Define the loader function with proper types
@@ -170,16 +171,16 @@ export default function Index() {
   const { name } = useLoaderData<typeof loader>();
 
   return (
-    <div>
-      <h1>Welcome, {name || "Guest"}!</h1>
+    <div className="App">
+      {/* <h1>Welcome, {name || "Guest"}!</h1>
       <Form method="post">
         <label>
           Enter your name:
           <input type="text" name="name" defaultValue={name} />
         </label>
         <button type="submit">Save Name</button>
-      </Form>
-      <FirstThreeDScene/>
+      </Form> */}
+      <ThreeScene/>
       
     </div>
   );

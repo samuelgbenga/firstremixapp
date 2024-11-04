@@ -7,7 +7,10 @@ import {
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
+import "./App.css";
 import "./tailwind.css";
+import { useState } from "react";
+import { div } from "three/webgpu";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -34,16 +37,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <ScrollRestoration />
-        {/* <Scripts /> */}
+        <Scripts />
       </body>
     </html>
   );
 }
 
 export default function App() {
-  return (
-   
-      <Outlet />
-
-  );
+ 
+  return <Outlet/>;
 }
