@@ -3,10 +3,17 @@
 @tailwind utilities;
 
 html,
-body {
+body, #root {
   @apply bg-white dark:bg-gray-900;
+
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
   }
+}
+
+canvas {
+  display: block; /* Ensure canvas is a block element */
+  width: 100%;   /* Ensure canvas takes full width */
+  height: 100%;  /* Ensure canvas takes full height */
 }

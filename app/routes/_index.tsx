@@ -140,6 +140,7 @@ export const meta: MetaFunction = () => {
 
 import { json, redirect, LoaderFunction, ActionFunction } from "@remix-run/node";
 import { Form, useLoaderData } from "@remix-run/react";
+import { FirstThreeDScene } from "~/components/FirstThreeDScene";
 import { getSession, commitSession } from "~/session.server";
 
 // Define the loader function with proper types
@@ -178,6 +179,8 @@ export default function Index() {
         </label>
         <button type="submit">Save Name</button>
       </Form>
+      <FirstThreeDScene/>
+      
     </div>
   );
 }
