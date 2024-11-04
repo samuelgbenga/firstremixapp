@@ -136,11 +136,15 @@ export const meta: MetaFunction = () => {
 //   },
 // ];
 
-
-
-import { json, redirect, LoaderFunction, ActionFunction } from "@remix-run/node";
+import {
+  json,
+  redirect,
+  LoaderFunction,
+  ActionFunction,
+} from "@remix-run/node";
 import { Form, useLoaderData } from "@remix-run/react";
 import { ThreeScene } from "~/components/ThreeScene";
+import ThreeScene1 from "~/components/ThreeScene1";
 
 import { getSession, commitSession } from "~/session.server";
 
@@ -180,8 +184,8 @@ export default function Index() {
         </label>
         <button type="submit">Save Name</button>
       </Form> */}
-      <ThreeScene/>
-      
+      <ThreeScene1 />
+      <ThreeScene />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 // src/ThreeScene.js
-import React, { useRef, useEffect } from 'react';
-import * as THREE from 'three';
+import React, { useRef, useEffect } from "react";
+import * as THREE from "three";
 
 export const ThreeScene: React.FC = () => {
   const mountRef = useRef<HTMLDivElement | null>(null);
@@ -8,23 +8,41 @@ export const ThreeScene: React.FC = () => {
   useEffect(() => {
     // Scene setup
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    // Set the background color
+    scene.background = new THREE.Color(0x1e1e1e);
+    const camera = new THREE.PerspectiveCamera(
+      75,
+      0.5, // Half the aspect ratio for half-width
+      0.1,
+      1000
+    );
+
     const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(window.innerWidth / 2, window.innerHeight);
     if (mountRef.current) {
-        mountRef.current.appendChild(renderer.domElement);
+      mountRef.current.appendChild(renderer.domElement);
     }
- 
 
     // Add a cube
     const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+    const material = new THREE.MeshStandardMaterial({
+      color: 0x00ff00,
+      roughness: 0.5,
+      metalness: 0.8,
+    });
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
 
     camera.position.z = 5;
 
+    // Increase intensity and move light closer
+    const pointLight = new THREE.PointLight(0x00ff00, 6); // Higher intensity (e.g., 5)
+    pointLight.position.set(2, 2, 2); // Closer position
+    scene.add(pointLight);
+
+
     // Animation loop
+
     const animate = () => {
       requestAnimationFrame(animate);
 
@@ -35,24 +53,23 @@ export const ThreeScene: React.FC = () => {
     };
     animate();
 
-     // Handle window resizing
-     const handleResize = () => {
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      camera.aspect = window.innerWidth / window.innerHeight;
+    // Handle window resizing
+    const handleResize = () => {
+      renderer.setSize(window.innerWidth / 2, window.innerHeight);
+      camera.aspect = 0.5;
       camera.updateProjectionMatrix();
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Clean up on component unmount
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
       renderer.dispose();
       if (mountRef.current) {
         mountRef.current.removeChild(renderer.domElement);
-    }
+      }
     };
   }, []);
 
-  return <div ref={mountRef} style={{ width: '100%', height: '100vh' }} />;
+  return <div className="threeDSceneContainer" ref={mountRef} />;
 };
-
