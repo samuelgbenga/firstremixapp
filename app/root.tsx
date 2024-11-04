@@ -34,12 +34,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <body>
         {children}
         <ScrollRestoration />
-        <Scripts />
+        {/* <Scripts /> */}
       </body>
     </html>
   );
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+   
+      <Outlet />
+
+  );
 }
