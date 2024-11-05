@@ -5,7 +5,10 @@
     "**/.server/**/*.ts",
     "**/.server/**/*.tsx",
     "**/.client/**/*.ts",
-    "**/.client/**/*.tsx"
+    "**/.client/**/*.tsx",
+    // "stories/**/*.ts",
+    // "stories/**/*.tsx"
+  
   ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
@@ -23,6 +26,9 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
+      // "@/components/*": ["./app/components/*"], // Adjust based on your directory structure
+      // "@/routes/*": ["./app/routes/*"],
+      // "@/stories/*": ["./stories/*"],
       "~/*": ["./app/*"]
     },
 

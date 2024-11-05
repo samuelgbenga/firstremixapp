@@ -6,7 +6,6 @@ import { OrbitControls } from "three-stdlib";
 
 const ThreeScene1: React.FC = () => {
   const mountRef = useRef<HTMLDivElement | null>(null);
-  let isMouseInside = false;
   const cubeRef = useRef<THREE.Mesh | null>(null);
 
   useEffect(() => {
