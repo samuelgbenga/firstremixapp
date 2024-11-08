@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  /* Line heights */
+  --lineHeightTitle: 1.2; /* Adjust to your preferred value */
+
+  /* Text colors */
+  --textTitle: #333333; /* Set the desired color for your title text */
+
+  /* Font sizes */
+  --fontSizeH0: 48px; /* Heading 0 size */
+  --fontSizeH1: 36px; /* Heading 1 size */
+  --fontSizeH2: 30px; /* Heading 2 size */
+  --fontSizeH3: 24px; /* Heading 3 size */
+  --fontSizeH4: 20px; /* Heading 4 size */
+  --fontSizeH5: 16px; /* Heading 5 size */
+
+  /* Font weights */
+  --fontWeightRegular: 400; /* Regular weight */
+  --fontWeightMedium: 500; /* Medium weight */
+  --fontWeightBold: 700; /* Bold weight */
+}
+
+
+/* Optionally, you can also define the variables inside a specific class or element */
+
+@layer components {
+  .heading {
+    line-height: var(--lineHeightTitle);
+    color: var(--textTitle);
+
+    &[data-level="0"] {
+      letter-spacing: -0.05em;
+      font-size: var(--fontSizeH0);
+    }
+
+    &[data-level="1"] {
+      letter-spacing: -0.05em;
+      font-size: var(--fontSizeH1);
+    }
+
+    &[data-level="2"] {
+      font-size: var(--fontSizeH2);
+      letter-spacing: -0.04em;
+    }
+
+    &[data-level="3"] {
+      font-size: var(--fontSizeH3);
+      letter-spacing: -0.02em;
+    }
+
+    &[data-level="4"] {
+      font-size: var(--fontSizeH4);
+      letter-spacing: -0.01em;
+    }
+
+    &[data-level="5"] {
+      font-size: var(--fontSizeH5);
+    }
+
+    &[data-align="auto"] {
+      text-align: inherit;
+    }
+
+    &[data-align="start"] {
+      text-align: start;
+    }
+
+    &[data-align="center"] {
+      text-align: center;
+    }
+
+    &[data-weight="regular"] {
+      font-weight: var(--fontWeightRegular);
+    }
+
+    &[data-weight="medium"] {
+      font-weight: var(--fontWeightMedium);
+    }
+
+    &[data-weight="bold"] {
+      font-weight: var(--fontWeightBold);
+    }
+  }
+}

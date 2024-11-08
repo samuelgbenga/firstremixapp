@@ -9,6 +9,9 @@ import type { LinksFunction } from "@remix-run/node";
 
 import "./App.css";
 import "./tailwind.css";
+import "./global.module.css";
+import "./reset.module.css";
+import style from "./root.module.css";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },

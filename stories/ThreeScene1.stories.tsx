@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import ThreeScene1 from "app/components/ThreeScene1";
 
 const meta = {
-  title: "Example/ThreeScene1",
+  title: "Testing/ThreeScene1",
   component: ThreeScene1,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],

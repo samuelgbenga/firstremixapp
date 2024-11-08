@@ -1,0 +1,124 @@
+@custom-media --mediaDesktop (max-width: 2080px);
+@custom-media --mediaLaptop (max-width: 1680px);
+@custom-media --mediaTablet (max-width: 1040px);
+@custom-media --mediaMobile (max-width: 696px);
+@custom-media --mediaMobileLS (max-height: 696px);
+@custom-media --mediaMobileS (max-width: 400px);
+@custom-media --mediaUseMotion (prefers-reduced-motion: no-preference);
+@custom-media --mediaReduceMotion (prefers-reduced-motion: reduce);
+@custom-media --mediaTouch (pointer: coarse);
+@custom-media --mediaNoTouch (pointer: fine);
+
+/* Root Variables - Global Scope */
+
+
+@layer base {
+  :global(:root) {
+    /* --mediaDesktop: (max-width: 2080px);
+    --mediaLaptop: (max-width: 1680px);
+    --mediaTablet: (max-width: 1040px);
+    --mediaMobile: (max-width: 696px);
+    --mediaMobileLS: (max-height: 696px);
+    --mediaMobileS: (max-width: 400px);
+    --mediaUseMotion: (prefers-reduced-motion: no-preference);
+    --mediaReduceMotion: (prefers-reduced-motion: reduce);
+    --mediaTouch: (pointer: coarse);
+    --mediaNoTouch: (pointer: fine); */
+
+    /* Typography */
+    --lineHeightBody: 1.5; /* Example line height value */
+    --textBody: #333; /* Example text color */
+
+    --fontSizeBodyS: 0.875rem; /* Example small font size */
+    --fontSizeBodyM: 1rem; /* Example medium font size */
+    --fontSizeBodyL: 3.125rem; /* Example large font size */
+    --fontSizeBodyXL: 1.25rem; /* Example extra-large font size */
+
+    --fontWeightRegular: 400; /* Regular weight */
+    --fontWeightMedium: 500; /* Medium weight */
+    --fontWeightBold: 700; /* Bold weight */
+
+    /* Text Colors */
+    --textLight: #777; /* Lighter text color */
+
+    --mobileNavOffset: calc(var(--spaceOuter) * 2 + var(--space2XL));
+    --fontStack: "Arial", sans-serif; /* Example font stack */
+    --fontWeightRegular: 400; /* Regular font weight */
+    --background: #f0f0f0; /* Background color */
+    --durationM: 300ms; /* Transition duration */
+    --textBody: #333333; /* Text color */
+    --monoFontStack: "Courier New", monospace; /* Mono font stack */
+    --accent: #ff6347; /* Accent color */
+    --black: #000000; /* Black color */
+    --text: #555555; /* Text focus color */
+    --spaceOuter: 20px; /* Space value example */
+    --space2XL: 40px; /* Larger space example */
+  }
+
+  :global(html, body) {
+    font-family: var(--fontStack);
+    font-weight: var(--fontWeightRegular);
+    background-color: var(--background);
+    transition: var(--durationM) ease;
+    transition-property: background, opacity;
+    color: var(--textBody);
+    width: 100vw;
+    overflow-x: hidden;
+    opacity: 1;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  :global(:where(code, pre)) {
+    font-family: var(--monoFontStack);
+  }
+
+  :global(::selection) {
+    background: var(--accent);
+    color: var(--black);
+  }
+
+  :global(:focus) {
+    outline: 4px solid var(--text);
+    outline-offset: 4px;
+  }
+
+  :global(:focus:not(:focus-visible)) {
+    outline: none;
+  }
+
+  /* Correct usage of keyframes without :global inside */
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes reveal {
+    0% {
+      transform: scale3d(0, 1, 1);
+      transform-origin: left;
+    }
+
+    50% {
+      transform: scale3d(1, 1, 1);
+      transform-origin: left;
+    }
+
+    51% {
+      transform: scale3d(1, 1, 1);
+      transform-origin: right;
+    }
+
+    100% {
+      transform: scale3d(0, 1, 1);
+      transform-origin: right;
+    }
+  }
+}

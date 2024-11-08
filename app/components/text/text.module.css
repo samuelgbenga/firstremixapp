@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Typography */
+  --lineHeightBody: 1.5; /* Example line height value */
+  --textBody: #333; /* Example text color */
+
+  --fontSizeBodyS: 0.875rem; /* Example small font size */
+  --fontSizeBodyM: 1rem; /* Example medium font size */
+  --fontSizeBodyL: 3.125rem; /* Example large font size */
+  --fontSizeBodyXL: 1.25rem; /* Example extra-large font size */
+
+  --fontWeightRegular: 400; /* Regular weight */
+  --fontWeightMedium: 500; /* Medium weight */
+  --fontWeightBold: 700; /* Bold weight */
+
+  /* Text Colors */
+  --textLight: #777; /* Lighter text color */
+}
+
+@layer components {
+  .text {
+    line-height: var(--lineHeightBody);
+    color: var(--textBody);
+
+    &[data-size="s"] {
+      font-size: var(--fontSizeBodyS);
+    }
+
+    &[data-size="m"] {
+      font-size: var(--fontSizeBodyM);
+    }
+
+    &[data-size="l"] {
+      font-size: var(--fontSizeBodyL);
+    }
+
+    &[data-size="xl"] {
+      font-size: var(--fontSizeBodyXL);
+    }
+
+    &[data-align="auto"] {
+      text-align: inherit;
+    }
+
+    &[data-align="start"] {
+      text-align: start;
+    }
+
+    &[data-align="center"] {
+      text-align: center;
+    }
+
+    &[data-weight="auto"] {
+      font-weight: inherit;
+    }
+
+    &[data-weight="regular"] {
+      font-weight: var(--fontWeightRegular);
+    }
+
+    &[data-weight="medium"] {
+      font-weight: var(--fontWeightMedium);
+    }
+
+    &[data-weight="bold"] {
+      font-weight: var(--fontWeightBold);
+    }
+
+    &[data-secondary="true"] {
+      color: var(--textLight);
+    }
+  }
+}

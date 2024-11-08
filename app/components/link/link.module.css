@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .link {
+    --durationM: 0.3s; /* Duration of transition, e.g., 0.3 seconds */
+    --bezierFastoutSlowin: cubic-bezier(
+      0.4,
+      0,
+      0.2,
+      1
+    ); /* Fast Out, Slow In easing function */
+
+    --lineStrokeWidth: 2px;
+    --linkColor: blue;
+    --lineOpacity: 30%;
+    --filledLineGradient: linear-gradient(var(--linkColor), var(--linkColor));
+    --unfilledLineGradient: linear-gradient(
+      color-mix(in lab, var(--linkColor) var(--lineOpacity), transparent),
+      color-mix(in lab, var(--linkColor) var(--lineOpacity), transparent)
+    );
+
+    cursor: pointer;
+    display: inline;
+    color: var(--linkColor);
+    background: var(--filledLineGradient) no-repeat 100% 100% / 0
+        var(--lineStrokeWidth),
+      var(--unfilledLineGradient) no-repeat 0 100% / 100% var(--lineStrokeWidth);
+    padding-bottom: var(--lineStrokeWidth);
+
+    &:hover,
+    &:focus {
+      background: var(--filledLineGradient) no-repeat 0 100% / 100%
+          var(--lineStrokeWidth),
+        var(--unfilledLineGradient) no-repeat 0 100% / 100%
+          var(--lineStrokeWidth);
+    }
+
+    @media (--mediaUseMotion) {
+      transition-duration: var(--durationM);
+      transition-timing-function: var(--bezierFastoutSlowin);
+      transition-property: background-size;
+    }
+
+    &[data-secondary="true"] {
+      --linkColor: black;
+    }
+  }
+}
