@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Icon from "~/components/icon/icon";
+import {Icon} from "~/components/icon/icon";
 // Adjust the import path according to where your Icon component is located
 
 const meta = {

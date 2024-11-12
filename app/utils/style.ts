@@ -16,13 +16,13 @@ export const numToMs = (num: number): string => `${num}ms`;
 export const numToPx = (num: number) :string  => `${num}px`;
 
 
-type CSSValue = string | number;
+type CSSValue = string | number | undefined;
 
 interface CSSProps {
   [key: string]: CSSValue;
 }
 
-export function cssProps(props: CSSProps, style: React.CSSProperties | undefined ): CSSProps {
+export function cssProps(props: CSSProps , style: React.CSSProperties | undefined ): CSSProps {
   let result: CSSProps = {};
 
   const keys = Object.keys(props);
@@ -47,3 +47,28 @@ export function cssProps(props: CSSProps, style: React.CSSProperties | undefined
 
   return { ...result, ...style };
 }
+
+
+/**
+ * Convert pixel values to rem for a11y
+ */
+export const pxToRem = (px: number) :string  => `${px / 16}rem`;
+
+
+/**
+ * Media query breakpoints
+ */
+export const media = {
+    desktop: 2080,
+    laptop: 1680,
+    tablet: 1040,
+    mobile: 696,
+    mobileS: 400,
+  };
+
+
+  /**
+ * Convert ms token values to a raw numbers for ReactTransitionGroup
+ * Transition delay props
+ */
+export const msToNum = (msString: string) : number => Number(msString.replace('ms', ''));

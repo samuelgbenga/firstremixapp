@@ -29,6 +29,13 @@
     --mediaTouch: (pointer: coarse);
     --mediaNoTouch: (pointer: fine); */
 
+    /* to settle later */
+    /* --systemFontStack: system-ui, -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Ubuntu, Helvetica Neue, sans-serif;
+    --white: #ffffff;
+    --black: #000000;
+    --text: var(--black); */
+    /* Define other CSS variables as needed */
+
     /* Typography */
     --lineHeightBody: 1.5; /* Example line height value */
     --textBody: #333; /* Example text color */

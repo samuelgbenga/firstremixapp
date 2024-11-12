@@ -2,7 +2,7 @@ import { AnimatePresence, usePresence } from 'framer-motion';
 import { useEffect, useRef, useState, ReactNode } from 'react';
 
 interface TransitionProps {
-  children: (props: { visible: boolean; status: string; nodeRef: React.RefObject<HTMLElement> }) => ReactNode;
+  children: (props: { visible: boolean; status: string; nodeRef: React.RefObject<HTMLDivElement> }) => ReactNode;
   in: boolean;
   unmount?: boolean;
   initial?: boolean;
@@ -11,7 +11,7 @@ interface TransitionProps {
   onEntered?: () => void;
   onExit?: () => void;
   onExited?: () => void;
-  nodeRef?: React.RefObject<HTMLElement>;
+  nodeRef?: React.RefObject<HTMLDivElement>;
 }
 
 export const Transition: React.FC<TransitionProps> = ({
@@ -72,7 +72,7 @@ const TransitionContent: React.FC<TransitionContentProps> = ({
   const [isPresent, safeToRemove] = usePresence();
   const [hasEntered, setHasEntered] = useState(!initial);
   const splitTimeout = typeof timeout === 'object';
-  const internalNodeRef = useRef<HTMLElement>(null);
+  const internalNodeRef = useRef<HTMLDivElement>(null);
   const nodeRef = defaultNodeRef || internalNodeRef;
   const visible = hasEntered && show ? isPresent : false;
 

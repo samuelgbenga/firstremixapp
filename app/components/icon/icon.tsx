@@ -26,4 +26,4 @@ const Icon = forwardRef<SVGSVGElement, IconProps>(({ icon, className, size, ...r
   );
 });
 
-export default Icon;
+export {Icon};
