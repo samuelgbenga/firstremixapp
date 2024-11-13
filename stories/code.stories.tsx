@@ -10,7 +10,6 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
-  
 } satisfies Meta<typeof Code>;
 
 export default meta;
@@ -44,15 +43,17 @@ console.log(greet('World'));`,
   },
 };
 
-// // Copied State Story: Simulates a recently copied state
-// export const CopiedState: Story = {
-//   args: {
-//     children: "SELECT * FROM users WHERE status = 'active';", // SQL example
-//     className: "language-sql", // Simulate SQL syntax highlighting
-//   },
-//   play: async ({ canvasElement }) => {
-//     // This simulates clicking the copy button to show "copied" state
-//     const copyButton = canvasElement.querySelector("[aria-label='Copy']");
-//     if (copyButton) copyButton.click();
-//   },
-// };
+// Copied State Story: Simulates a recently copied state
+export const CopiedState: Story = {
+  args: {
+    children: "SELECT * FROM users WHERE status = 'active';", // SQL example
+    className: "language-sql", // Simulate SQL syntax highlighting
+  },
+  play: async ({ canvasElement }) => {
+    // This simulates clicking the copy button to show "copied" state
+    const copyButton = canvasElement.querySelector<HTMLButtonElement>(
+      "[aria-label='Copy']"
+    );
+    if (copyButton) copyButton.click();
+  },
+};
