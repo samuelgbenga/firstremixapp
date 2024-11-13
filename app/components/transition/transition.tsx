@@ -2,7 +2,7 @@ import { AnimatePresence, usePresence } from 'framer-motion';
 import { useEffect, useRef, useState, ReactNode } from 'react';
 
 interface TransitionProps {
-  children: (props: { visible: boolean; status: string; nodeRef: React.RefObject<HTMLDivElement> }) => ReactNode;
+  children: (props: { visible: boolean; status: string; nodeRef: React.RefObject<HTMLDivElement > }) => ReactNode;
   in: boolean;
   unmount?: boolean;
   initial?: boolean;
