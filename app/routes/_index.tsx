@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Error } from "~/layouts/error";
 import { Navbar } from "~/layouts/navbar";
+import { ProjectHeader } from "~/layouts/project";
 // import "app/tailwind.css";
 
 export const meta: MetaFunction = () => {
@@ -63,7 +64,15 @@ export default function Index() {
   return (
     <>
       <Navbar />
-      <Error error={simulatedError} />
+      {/* <Error error={simulatedError} /> */}
+      <ProjectHeader
+        title="My Awesome Project"
+        description="This project showcases the best practices in modern web development."
+        linkLabel="Learn More"
+        url="https://example.com"
+        roles={["Developer", "Designer", "Tester"]}
+        className="custom-header-class"
+      />
     </>
   );
 }
