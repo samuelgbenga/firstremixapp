@@ -4,7 +4,7 @@ interface IntersectionOptions extends IntersectionObserverInit {}
 
 export function useInViewport(
   elementRef: RefObject<Element>,
-  unobserveOnIntersect: boolean,
+  unobserveOnIntersect: boolean | undefined,
   options: IntersectionOptions = {},
   shouldObserve: boolean = true
 ): boolean {

@@ -18,6 +18,7 @@ interface ImageProps extends React.HTMLAttributes<HTMLDivElement> {
   srcSet: string;
   placeholder?: string;
   alt?: string;
+  width: any;
 }
 
 export const Image = ({
@@ -30,7 +31,7 @@ export const Image = ({
   srcSet,
   placeholder,
   ...rest
-}: ImageProps) => {
+}: any) => {
   const [loaded, setLoaded] = useState(false);
   const { theme } = useTheme();
   const containerRef = useRef<HTMLDivElement>(null);

@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { Error } from "~/layouts/error";
 import { Navbar } from "~/layouts/navbar";
+import { Post } from "~/layouts/post";
 import { ProjectHeader } from "~/layouts/project";
 // import "app/tailwind.css";
 
@@ -73,6 +74,23 @@ export default function Index() {
         roles={["Developer", "Designer", "Tester"]}
         className="custom-header-class"
       />
+
+      {/* <Post
+        title="Building a Modern Web Experience"
+        date="2024-11-22"
+        banner=""
+        timecode="5 min read"
+      >
+        <p>
+          Welcome to the modern web development journey! This article explores
+          how to build scalable, high-performance web applications with modern
+          tools and techniques.
+        </p>
+        <p>
+          You'll learn the intricacies of responsive design, accessibility, and
+          the importance of clean code to deliver the best user experience.
+        </p>
+      </Post> */}
     </>
   );
 }
