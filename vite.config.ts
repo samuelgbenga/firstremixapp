@@ -10,6 +10,7 @@ declare module "@remix-run/node" {
 }
 
 export default defineConfig({
+  assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl'],
   plugins: [
     remix({
       future: {

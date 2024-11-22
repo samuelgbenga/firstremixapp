@@ -1,2 +1,2 @@
 export * from './useHasMounted';
-export * from './useInViewPort'
+export * from './useInViewport'
