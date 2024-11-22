@@ -1,7 +1,7 @@
 import { vitePlugin as remix } from "@remix-run/dev";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
 declare module "@remix-run/node" {
   interface Future {
@@ -10,7 +10,7 @@ declare module "@remix-run/node" {
 }
 
 export default defineConfig({
-  assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl'],
+  assetsInclude: ["**/*.glb", "**/*.hdr", "**/*.glsl"],
   plugins: [
     remix({
       future: {
@@ -22,5 +22,13 @@ export default defineConfig({
       },
     }),
     tsconfigPaths(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: "app/assets/*.glb", // Adjust the path as needed
+          dest: "assets",
+        },
+      ],
+    }),
   ],
 });
